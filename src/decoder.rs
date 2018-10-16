@@ -239,7 +239,7 @@ impl<'a> Decoder<'a> {
         }
 
         if !starts_with_syncword(raw) {
-            for byte in self.raw.iter().map(|b| *b) {
+            for byte in self.raw.iter().cloned() {
                 raw <<= 8;
                 raw |= byte as u32;
 

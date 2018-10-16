@@ -49,7 +49,7 @@ where
         let hig = match range.end_bound() {
             Unbounded => T::from(0),
             Included(h) => {
-                debug_assert!(*h <= self_sz - 1, "out of range");
+                debug_assert!(*h < self_sz, "out of range");
                 debug_assert!(low <= *h, "incorrect range");
 
                 T::from(self_sz) - T::from(1) - *h
